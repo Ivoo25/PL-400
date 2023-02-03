@@ -1,0 +1,53 @@
+Pregunta 1:
+I wish to add an event handler to this code.
+
+this.formOnLoad = function (executionContext)
+{
+    var formContext = executionContext.getFormContext();
+    formContext.ui.setFormNotification("Hello world v4", "INFO", "IDUnique220912");
+}
+I click on "Configure Event", and the below dialog box appears.
+
+What else do I need to do this in this dialog box to allow this code to work?
+Answer:
+Check pass execution context as first parameter
+
+Pregunta 2:
+Which of these following is not a valid client-side event?
+Answer:
+Column on select -> You can use OnRecordSelect for grids, but not for columns.
+
+Pregunta 3:
+I have a model-driven app.
+I want to write a client-side script which adds a default value of 123-4567 to the "fax" column.
+I have the following code:
+this.formOnLoad = function (executionContext)
+{
+ var formContext = executionContext.getFormContext();
+ // add code here
+}
+What additional code do I write?
+Answer:
+formContext.getAttribute("fax").setValue("123-4567");
+getAttribute and setValue will change the data, and the value you are changing it to needs to be in ( )s.
+
+Pregunta 4:
+Which of these is NOT a valid object?
+Answer:
+executionContext.formContext.getColumn -> To get your column/field data, you should use .getAttribute
+
+Pregunta 5:
+I have a form which includes "Address 1". This is a multiline text, as shown below.
+I want to set the field "Address 1: Street 3" shown above to be invisible. What code do I use?
+Answer:
+formContext.getControl("address1_composite_compositionLinkControl_address1_line3").setVisible(false);
+
+Pregunta 6:
+How many event handlers can a single event have?
+For example, how many event handlers can I add to a form's OnLoad event?
+Answer:
+50
+
+
+
+

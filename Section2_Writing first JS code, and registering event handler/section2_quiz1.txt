@@ -1,0 +1,31 @@
+Pregunta 1:
+I want to test whether the fax field is empty. I am currently using this code:
+
+this.formOnLoad = function (executionContext)
+{
+    var formContext = executionContext.getFormContext();
+    if (formContext.getAttribute("fax").getValue() = null)
+    {
+        formContext.getAttribute("fax").setValue("123-4567");
+    }
+}
+-Answer:
+You need two equal signs to test for equality, not one.
+
+Pregunta 2:
+What should every line in JavaScript end with?
+-Answer:
+A semicolon.
+
+Pregunta 3:
+I want to test a condition - which word (and capitalization) should I use?
+-Answer:
+if
+
+Pregunta 4:
+I want to test a condition - which of the following is correct code?
+-Answer:
+if(formContext.getAttribute("fax").getValue() == null)
+{
+    formContext.ui.setFormNotification("Fax is empty", "WARNING", "1");
+}
