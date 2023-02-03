@@ -1,0 +1,15 @@
+-Como recomendacion, ver los videos sobre pl-900, pl-100 y pl-200
+-Endender C#, JavaScript y TypeScript
+--------- MDA ------------
+Client side scripts:
+-Client-side events are:
+    -Column
+        -onchange
+    -Form
+        -onload
+        -onsave
+    -Form data
+        -onload
+    -Grid and subgrid
+        -onload
+                    
