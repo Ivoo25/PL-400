@@ -30,3 +30,84 @@ Client side scripts:
         -onstageselected
     -Tab
         -tabstatechange                                
+
+
+-> When adding an event handler, go to the hamburger menu and select "From Libraries", then Add Library, and "New web resource", once that's than close and re open "From Libraries" but now look for the event handler just added.
+-> The form is independent from the library, once published, i dont need to republish the form.         
+
+
+
+-----executionContext.getFormContext()--------
+-> This method returns a formContext object that provides methods to access the form data and UI.
+-> data
+-> ui
+-> getAttribute -> get value and set value
+-> getControl
+
+-> data: 
+    - attributes: columns
+    - entity: 
+        -attributes (current record):
+            -controls
+        -save method
+    - process:
+        -stages
+        -steps
+executionContext.getFormContext().data. :
+    -addOnLoad
+    -removeOnLoad
+     -> this two adds or removes a function to be called when the form is loaded.
+    -getisDirty
+     -> returns true if the form is dirty, false otherwise. Dirty is when the user has changed the data in the form but not saved it.
+    -isValid
+     -> returns true if the data in the form is valid, false otherwise. Valid is when the data in the form is valid according to the validation rules defined in the form.
+    -refresh
+     -> refreshes the data in the form. This method is useful when you want to refresh the data in the form after you have made changes to the data in the background. 
+    -save
+     -> saves the data in the form. This method is useful when you want to save the data in the form after you have made changes to the data in the background. 
+
+-> ui:
+    -formSelector.items
+    -navigation.items 
+    -controls
+    -quickForms
+    -process
+    -tabs -> tabs.sections
+
+executionContext.getFormContext().ui. :
+    -addOnLoad
+    -removeOnLoad
+    -close
+    -getFormType:3
+    Returns:
+        -0: Undefined 
+        -1: Create
+        -2: Update
+        -3: Read Only
+        -4: Disabled
+        -6: Bulk Edit
+    -getViewPortHeight
+    -getViewPortWidth
+    -setFormEntityName
+    -setFormNotification(message, level, uniqueId)
+        -message: string
+        -level: string
+        -uniqueId: string
+    -clearFormNotification(uniqueId)
+
+-> getControl
+    -addNotification
+    -clearNotification
+    -getDisabled
+    -setDisabled
+    -getLabel
+    -setLabel
+    -getVisible
+    -setVisible
+    -setFocus
+    -getName
+    -getAttribute
+    -getControlType
+    -getOutput
+    -getParent
+    
