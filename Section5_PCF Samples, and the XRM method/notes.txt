@@ -1,0 +1,145 @@
+https://github.com/microsoft/PowerApps-Samples/blob/master/component-framework
+-> theres a problem with these samples -> I need to regenerate the "Manifest types"
+    -> pac pcf init --namespace pac --name [NAME OF THE COMPONENT] -- template field
+    -> npm install
+    -> npm run refreshType
+    -> move files downloaded (ControlManifestInput, index.ts, css and strings to the generated folder)
+    -> rebuild this (first update the control manifest version)
+    -> msbuild /t:build /restore
+
+
+executionContext.Xrm:
+    -> Device:
+        -> captureAudio:
+            -> successCallback:
+                -> filename
+                -> filesize
+                -> filecontetnt
+                -> mimeType
+            -> errorCallback
+            -> captureImage:
+                -> the above + imageOptions
+            -> captureVideo:
+                -> success and errorCallback
+            -> getBarcodeValue:
+                -> SuccessCallback:
+                    -> result (barcode value)
+            -> getCurrentPosition:
+                -> successCallback:
+                    -> cords (latitude, longitude, altitude, accuracy, altitudeAccuracy, heading, speed)
+                    -> timestamp
+            -> pickFile:
+                -> successCallback
+                -> pickFileOptions:
+                    -> accept
+                    -> allowMultipleFiles
+                    -> maximumAllowedFileSize    
+    -> Navigation:
+        -> navigateTo:
+            -> pageInput
+            -> navigationOptions
+        -> openAlertDialog:
+            -> alertStrings:
+                -> text
+                -> title
+                -> confirmButtonLabel
+            -> alertOptions:
+                -> height
+                -> width
+            -> successCallback
+            -> errorCallback
+        -> openConfirmDialog:
+            -> confirmStrings:
+                -> text
+                -> title
+                -> subtitle
+                -> confirmButtonLabel
+                -> cancelButtonLabel
+            -> confirmOptions:
+                -> height
+                -> width
+            -> successCallback:
+                -> confirmed
+            -> errorCallback
+        -> openErrorDialog:
+            -> errorOptions:
+                -> details
+                -> errorCode or message
+        -> openFile:
+            -> file:
+                -> filename
+                -> filesize
+                -> filecontent
+                -> mimeType
+            -> openMode:
+                -> 1: open
+                -> 2: save
+        -> openUrl:
+            -> url
+            -> openUrlOptions:
+                -> height
+                -> width
+        -> openWebResource:
+            -> webResourceName
+            -> data
+            -> webResourceOptions:
+                -> height
+                -> width
+        -> openForm:
+            -> entityFormOptions:
+                -> entityId
+                -> entityName
+                -> useQuickCreateForm
+                -> openInNewWindow
+            -> formParameters:
+                -> parameter1
+                -> parameter2
+                -> ...
+            -> successCallback
+            -> errorCallback                                                        
+    -> Encoding:
+        -> htmlAttributeEncode
+        -> htmlEncode
+        -> xmlAttributeEncode
+        -> xmlEncode
+        -> htmlDecode
+    -> Utility:
+        -> show and closeProgressIndicator
+        -> getAllowedStatusTransitions:
+            -> entityName
+            -> stateCode
+            -> successCallback:
+                -> allowedStatusTransitions
+            -> errorCallback
+        -> getEntityMetadata:
+            -> entityName
+            -> attributes:
+                -> attribute1
+                -> attribute2
+                -> ...
+            -> successCallback:
+                -> entityMetadata
+            -> errorCallback
+        -> getEntityMainFormDescriptor
+        -> getGlobalContext
+        -> getLearningPathAttributeName
+        -> getPageContext
+        -> getResourceString
+        -> invokeProcessAction
+        -> lookupObjects
+        -> refreshParentGrid        
+    -> Panel:
+        -> loadPanel:
+            -> url
+            -> title
+    -> WebApi:
+        -> offline
+        -> online
+        -> createRecord
+        -> deleteRecord
+        -> retrieveRecord
+        -> retrieveMultipleRecords
+        -> updateRecord
+        -> isAvailableOffline
+        -> execute
+        -> executeMultiple     
