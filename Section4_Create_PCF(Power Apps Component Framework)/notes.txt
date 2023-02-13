@@ -1,0 +1,49 @@
+PCF -> Creates components for MDA, Canvas and Power Pages
+    -> Loaded at the same time as other components
+    -> Can be used in any project
+    -> Can use frameworks (React, fluent, etc)
+To create a Component:
+-> cmd -> pac pcf init --namespace PL400namespace --name PL400component --template field(pac: power apps component, pcf: power apps component framework, init: initialize, --namespace: namespace of the component, --name: name of the component, --template: type of component, namespace can be replaced with ns, name can be replaced with n, template can be replaced with t)
+
+Manifest -> is metadata, it describes what the component does
+If I make changes on the component I must change the version number, or changes wont be seen: 
+    I go to the folder named after my name (PL400component in this case), ControlManidest.input.xml, and change the version number
+
+
+Configure a code component manifest:
+Data Types:
+-Strings:
+    Multiple
+    SingleLine.Email, SingleLine.Phone, SingleLine.Text, SingleLine.TextArea, SingleLine.Url, SingleLine.Ticker
+-Numbers:
+    Currency
+    Decimal between -/+ 100 billion
+    FP
+    Whole
+    None
+-Date and Time:
+    DateOnly
+    DateTime
+    Duration
+    TimeOnly
+-Others
+    Lookup.Simple
+    MultiSelectOptionSet
+    OptionSet
+    TwoOptions
+
+
+if usage equals bound -> this property represents a column or field in the data verse, can read or write in
+if usage equals input -> this property represents a value that is passed in from the parent component, can only read
+
+-> check error msgs, can happend quite often -> Error: Cannot find module 'ajv/dist/compile/codegen' -> solution: npm install --save-dev ajv@^7 
+
+npm start watch -> watch for changes in the code and automatically compile it
+
+msbuild /t:build /restore -> build the solution, restore the packages, restore runs the restore target prior to building the solutionm its only used when you have a new solution
+
+C:\d>pac auth create --url https://certificacionespractia.crm.dynamics.com -> connect to my profile
+pac auth list -> list all the profiles
+pac auth select --index 1 -> select the profile I want to use
+pac org who -> check which profile I am using
+pac pcf push --publisher-prefix [NAME] -> push the component to the environment
