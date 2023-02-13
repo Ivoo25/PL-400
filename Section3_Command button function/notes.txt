@@ -1,0 +1,46 @@
+When creating a component library you have two options:
+-Power FX -> creates a component library
+-JavaScript -> doesnt require a component library
+
+-> in parameters option, PrimaryControl is the equivalent to form context
+
+executionContext.Xrm:
+    -Device
+    -Encoding
+    -Navigation:
+        -navigateTo:
+            -pageInput
+            -navigationOptions
+        -openAlertDialog:
+            -alertStrongs:
+                -text
+                -confirmButtonLabel
+            -alertOptions:
+                -height
+                -width
+        -openConfirmDialog
+        -openErrorDialog
+            -successCallback
+            -errorCallback
+        -openFile
+        -openForm
+        -openUrl
+        -openWebResource
+    -Panel
+    -Utility
+    -WebApi:
+        -offline
+        -online
+
+
+Older version of command interface -> Not required anymore.
+Classic interface -> requires XML editing, one software to use for editing this is XrmToolBox.
+Sv name: Settings -> Session details -> instance url (is the sv name)
+If you were to use this method:
+1) Connect to server
+2) Connect to environment
+3) Connect to a solution with the relevant tables
+4) Add buttons
+5) Add JS
+6) Add Rules
+7) Enable Rules
