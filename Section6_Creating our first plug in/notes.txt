@@ -1,0 +1,47 @@
+PreValidation -> this happens before the main system operation, before any security checks and any data transaction. Needs to be done Synchroneously, it waits for all of the code to happen before it goes to the next part of the pipeline.
+PreOperation -> If we are updating values, we do it here, before the main operation and during the transaction. Needs to be done Synchroneously, it waits for all of the code to happen before it goes to the next part of the pipeline.
+PostOperation -> After the main system operation but still during the database transaction, if we change entities here its consider an update, its the only one that can be done asynchrounously.
+
+------------------------------------------------------------------ PreValidation ------ PreOperation ------ PostOperation
+Before main system operation                                     |        Yes          |       Yes         | No (after)
+Before database transaction                                      |        Yes          |       No (after)  | No (after)
+Asynchronous                                                     |        No           |       No          | Yes
+Synchronous                                                      |        Yes          |       Yes         | Yes
+Can stop record from being written                               |        Yes          | Only Rollback     | No 
+                                                                 |                     |(performance impact)|
+Can change values before record is written                       |Yes (but generally   |       Yes         | No (only be triggering an event update)
+without triggering an update event                               |done in preOperation |                   |                                  
+                                                                 |as the record not    |                   |
+                                                                 |created here)        |                   |
+
+
+If -> always better than try catch, if you are not sure if the plugin is going to be there, use try catch, if you are sure it is there, use if.
+
+Pregunta 1:
+Which of the following Event Pipeline Stages of Execution can you not use when creating a plug-in?
+Answer: MainOperation
+
+Pregunta 2:
+I am in Visual Studio, and I want to create a plug-in.
+I right-hand click on Solution Explorer, and go to "Manage NuGet Packages".
+What do I then install so that I can use the IPlugin interface?
+Answer: Microsoft.Xrm.Sdk.CoreAssemblies
+
+Pregunta 3:
+I am creating a plug-in which implements the IPlugin interface.
+public class NameOfClass : IPlugin
+It exposes a single method:
+public void ___________________  (IServiceProvider serviceProvider)
+What is the name of this method?
+Answer: Execute
+
+Pregunta 4:
+I want to create a plug-in.
+Which version of .NET Framework should I use?
+Answer: 4.6.2
+
+Pregunta 5:
+I want to debug a plug-in.
+I want to record myself doing an action, and then replay the action while looking at the code in Visual Studio.
+How can I do this?
+Answer: By using the Plug-in profiler
