@@ -1,0 +1,49 @@
+The code will be done in section 6 since it started there.
+(Entity)context.OutputParameters -> only to use if we have plugins in the post operation stage
+(Entity)context.SharedVariables
+ -> if we have data to move from one bit to another  
+
+
+
+WEB API -> Odata REST
+Organization Services - .NET Framework SDK, it doesnt have to translate, recommended than web api, which has to translate then to Organization Services
+
+Quests:
+Pregunta 1:
+I want to attach a pre-image to my plug-in.
+Where do I attach it?
+Answer:
+In the Plug-in registration tool
+
+Pregunta 2:
+I want to use retrievemultiple.
+I want to retrieve only rows which begins with a particular value.
+Where do I specify the "BeginsWith"?
+Answer:
+In the conditionExpression
+
+Pregunta 3:
+I wish to retrieve data from my account table, but I do not know the ID of the relevant row.
+However, I know the account name.
+I can use the following code:
+
+RetrieveRequest requestR = new RetrieveRequest()
+{
+    ColumnSet = new ColumnSet("name", "fax"),
+    Target = new EntityReference("account", "name", "My Account 11")
+};
+var responseR = (RetrieveResponse)service.Execute(requestR);
+
+However, it doesn't work, because I need to set something up in the table first.
+I go to the Power Apps Portal, and go to Dataverse - Tables and select the account table.
+What should I set up, to allow the above code to work?
+Answer:
+A key
+
+Pregunta 4:
+I want to use the retrievemultiple method.
+I want to specify which columns/fields to retrieve.
+What do I use to specify these columns/fields?
+Answer:
+ColumnSet
+
